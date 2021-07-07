@@ -53,6 +53,11 @@ task('craft:cache:flush_all', function () {
     run('{{bin/php}} {{release_path}}/craft cache/flush-all');
 });
 
+desc('Execute craft clear-cache/compiled-templates');
+task('craft:clear_cache:compiled_templates', function () {
+    run('{{bin/php}} {{release_path}}/craft clear-caches/compiled-templates');
+});
+
 task('deploy', [
     'deploy:info',
     'deploy:prepare',
