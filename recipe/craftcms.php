@@ -61,12 +61,7 @@ task('craft:clear_cache:compiled_templates', function () {
 task('deploy', [
     'deploy:info',
     'deploy:prepare',
-    'deploy:lock',
-    'deploy:release',
-    'deploy:update_code',
-    'deploy:shared',
     'deploy:vendors',
-    'deploy:writable',
     'deploy:symlink',
     'deploy:unlock',
     'deploy:cleanup',
