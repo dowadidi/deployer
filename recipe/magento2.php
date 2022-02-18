@@ -26,6 +26,7 @@ set('content_version', function () {
 set('shared_files', [
     'app/etc/env.php',
     'var/.maintenance.ip',
+    'var/.maintenance.flag'
 ]);
 set('shared_dirs', [
     'var/composer_home',
@@ -59,8 +60,8 @@ set('clear_paths', [
 set('magento_version', function () {
     // detect version
     $versionOutput = run('{{bin/php}} {{release_or_current_path}}/bin/magento --version');
-    preg_match('/(\d+\.?)+$/', $versionOutput, $matches);
-    return $matches[0] ?? "2.0";
+    preg_match('/(\d+\.?)+(-p\d+)?$/', $versionOutput, $matches);
+    return $matches[0] ?? '2.0';
 });
 
 set('maintenance_mode_status_active', function () {
